@@ -21,8 +21,9 @@ def uplaod():
     fn = secrets.token_urlsafe(6)
     xfn = request.headers.get("x-file-name")
     xiv = request.headers.get("x-init-vector")
+    xmt=request.headers.get("x-mime-type")
     with open(os.path.join(upload_dir_location, f"{fn}.data"), "w") as f:
-        f.write(json.dumps({"name": xfn, "iv": xiv}))
+        f.write(json.dumps({"name": xfn, "iv": xiv,"mt":xmt}))
     with open(os.path.join(upload_dir_location, fn), "wb") as f:
         while 1:
             chunk = request.stream.read(4096 * 1024)
@@ -33,10 +34,27 @@ def uplaod():
     return Response(json.dumps({"file": fn}), mimetype="application/json")
 
 
-@app.route("/dl/", strict_slashes=False)
+@app.route("/req/dl/", strict_slashes=False)
 def dlfile():
-    return send_from_directory("uploads", request.args.get("f"))
+    fn=request.args.get("f","")
+    fpath=os.path.join( upload_dir_location,fn )
+    if not fn or not os.path.isfile(fpath):
+        return Response(json.dumps({"error":"bad-file"}),status=200)
+    with open (f"{fpath}.data","r") as f:
+        data=(f.read())
+   # resp=make_response( send_from_directory("uploads", request.args.get("f")))
+    return Response (data)
 
+
+if not os.environ.get("JufoKF6D6D1UNCRrB"):
+    @app.route("/get-file/",strict_slashes=False)
+    def file_ng():
+        f=request.args.get("f")
+        return send_from_directory("uploads",f)
+    
+@app.route("/f/",strict_slashes=False)
+def filedl():
+    return render_template("file.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

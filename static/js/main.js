@@ -9,6 +9,7 @@ button.addEventListener("click", () => {
 });
 let data;
 file.onchange = function () {
+	document.getElementById("data").innerHTML=""
     data = file.files[0];
     encrypt(data);
 }

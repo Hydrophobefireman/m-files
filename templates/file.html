@@ -5,25 +5,19 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Mega</title>
+	<script>window.onerror=e=>alert(e)</script>	
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="/static/jsmin/main.js" type="module"></script>
     <link rel="stylesheet" href="data:text/css;base64,LmJ0bi1tLC5idG4ta3tiYWNrZ3JvdW5kLWNvbG9yOiNmZmY7Ym9yZGVyLXJhZGl1czo1cHg7cGFkZGluZzo0cHg7Ym9yZGVyOjFweCBzb2xpZCAjNjIwMGVlO291dGxpbmU6MDtjb2xvcjojNjIwMGVlO21pbi13aWR0aDo4MHB4O3dpZHRoOjIwJTttYXJnaW46MTBweDtjdXJzb3I6cG9pbnRlcjtvdmVyZmxvdzpoaWRkZW47dGV4dC1vdmVyZmxvdzplbGxpcHNpcztoZWlnaHQ6MTAlO3VzZXItc2VsZWN0Om5vbmV9LmJ0bi1tOmFjdGl2ZSwuYnRuLW06aG92ZXJ7Ym94LXNoYWRvdzoycHggMnB4ICNkOWRjZTA7YmFja2dyb3VuZC1jb2xvcjojNjIwMGVlO2NvbG9yOiNmZmZ9LnByZ3stbW96LWJvcmRlci1yYWRpdXM6MTVweDstd2Via2l0LWJvcmRlci1yYWRpdXM6MTVweDtib3JkZXItcmFkaXVzOjE1cHg7cGFkZGluZzo4cHg7Ym9yZGVyOm5vbmU7b3V0bGluZTpub25lO2JhY2tncm91bmQ6IzMzNjdkNjtjb2xvcjp3aGl0ZTt0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7Y3Vyc29yOnBvaW50ZXI7LXdlYmtpdC10b3VjaC1jYWxsb3V0Om5vbmU7LXdlYmtpdC11c2VyLXNlbGVjdDpub25lOy1raHRtbC11c2VyLXNlbGVjdDpub25lOy1tb3otdXNlci1zZWxlY3Q6bm9uZTstbXMtdXNlci1zZWxlY3Q6bm9uZTt1c2VyLXNlbGVjdDpub25lO2Rpc3BsYXk6YmxvY2s7dmlzaWJpbGl0eTpoaWRkZW47dHJhbnNpdGlvbjowLjVzfQ==">
 </head>
 
 <body>
-	<input style="opacity:0;width:0px;height:0px;" id="data-inp">
-    <div style="margin:auto;text-align:center">
-        <div>
-            <button class="btn-m" style="width:auto" id="main">Click Here To Select A File</button>
-            <input style="display:none" id="file" type="file">
-            <div>
-                <div id="prog-perc"></div>
-                <button id="progress-button" class="prg"></button>
-            </div>
-			<div id="data"></div>
-			<div id="errs"></div>
-        </div>
-    </div>
+<div style="margin:auto;text-align:center">
+<div>
+Downloading
+<div id="root" style="width:98%"></div>
+</div>
+</div>
+</div>
+<script src="/static/jsmin/download.js" type="module"></script>
 </body>
-
 </html>
